@@ -15,17 +15,28 @@ function gameStart(){
     const san_group = new Group();
     scene.addChild(san_group);
 
-    const san = new ExSprite(633,421);
+    const san = new Sprite(633,421);
     san.image = core.assets["images/210125_san_01.jpg"];
     //scene.addChild(san);
-    for(let i = 1;i<=3;i++){
-          for(let i2 = 1;i2<=2;i2++){
-              let san_d = new ExSprite(633/3*i,421/2*i2);
+    for(let i = 0;i<=2;i++){
+          for(let i2 = 0;i2<=1;i2++){
+              //三分割したものを左から出していく
+              let san_d = new ExSprite(633/3,421/2);
               san_d.image = san.image;
+              san_d.frame = i;
+              san_d.x = san_d.width*i;
               san_group.addChild(san_d);
-              console.log(san_group.childNodes);
-    　}
+              console.log(san_d.width,i,san_d.width*i);
+     }
     }
+    /*
+    const sg_cn = san_group.childNodes
+    function suffle(){
+      sg_cn[0].x = sg_cn[1].x
+      console.log(sg_cn[0].x,sg_cn[2].x);
+    };
+    suffle();
+    */
 
     //==========
     // ここまで
