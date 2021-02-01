@@ -23,8 +23,9 @@ function gameStart(){
               //三分割したものを左から出していく
               let san_d = new ExSprite(633/3,421/2);
               san_d.image = san.image;
-              san_d.frame = i;
+              san_d.frame = i+ i2*3;
               san_d.x = san_d.width*i;
+              san_d.y = san_d.height*i2
               san_group.addChild(san_d);
               console.log(san_d.width,i,san_d.width*i);
      }
