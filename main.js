@@ -11,7 +11,7 @@ function gameStart(){
     // ここから
     //==========
 
-    function get_random(num){return Math.random()*num};
+    function get_random(num){return Math.floor(Math.random()*num)};
 
     scene.backgroundColor = "lightgray"
     const san_group = new Group();
@@ -28,7 +28,7 @@ function gameStart(){
                   san_d.x = san_d.width*i;
                   san_d.y = san_d.height*i2
                   san_group.addChild(san_d);
-                  console.log();
+                  console.log(get_random(sg_cn.length));
                   san_d.on(Event.TOUCH_START,function(e){
                     console.log(e,this);
                   });
