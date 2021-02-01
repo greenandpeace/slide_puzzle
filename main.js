@@ -16,6 +16,7 @@ function gameStart(){
     scene.backgroundColor = "lightgray"
     const san_group = new Group();
     scene.addChild(san_group);
+    //ピースが入ってる配列
     const sg_cn = san_group.childNodes;
 
     function init(){
@@ -34,7 +35,9 @@ function gameStart(){
                   });
             }
         }
-
+      ///ランダムでピースを一つ消す
+      const random_num = get_random(sg_cn.length)
+      san_group.removeChild(sg_cn[random_num]);
     }
     init();
 
