@@ -11,29 +11,32 @@ function gameStart(){
     // ここから
     //==========
 
+    function get_random(num){return Math.random()*num};
+
     scene.backgroundColor = "lightgray"
     const san_group = new Group();
     scene.addChild(san_group);
     const sg_cn = san_group.childNodes;
 
-    //const san = new Sprite(633,421);
-    //san.image = core.assets["images/210125_san_01.jpg"];
-    //scene.addChild(san);
-    for(let i = 0;i<=2;i++){
-          for(let i2 = 0;i2<=1;i2++){
-              //三分割したものを左から出していく
-              let san_d = new ExSprite(633/3,421/2);
-              san_d.image = core.assets["images/210125_san_01.jpg"];
-              san_d.frame = i+ i2*3;
-              san_d.x = san_d.width*i;
-              san_d.y = san_d.height*i2
-              san_group.addChild(san_d);
-              console.log(san_d.x);
-              san_d.on(Event.TOUCH_START,function(e){
-                 console.log(e,this);
-              });
-     }
+    function init(){
+        for(let i = 0;i<=2;i++){
+            for(let i2 = 0;i2<=1;i2++){
+                  //三分割したものを左から出していく
+                  let san_d = new ExSprite(633/3,421/2);
+                  san_d.image = core.assets["images/210125_san_01.jpg"];
+                  san_d.frame = i+ i2*3;
+                  san_d.x = san_d.width*i;
+                  san_d.y = san_d.height*i2
+                  san_group.addChild(san_d);
+                  console.log();
+                  san_d.on(Event.TOUCH_START,function(e){
+                    console.log(e,this);
+                  });
+            }
+        }
+
     }
+    init();
 
 
     function suffle(){
@@ -41,6 +44,8 @@ function gameStart(){
       console.log(sg_cn[0].x,sg_cn[1].x);
     };
     //suffle();
+
+
 
     //==========
     // ここまで
