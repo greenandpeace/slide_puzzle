@@ -40,17 +40,19 @@ function gameStart(){
             }
         }
       ///ランダムでピースを一つ消す
-      const random_num = get_random(sg_cn.length)
+      const random_num = get_random(sg_cn.length);
+      //消すピースが入っていた所を"blank"に置き換える;
       san_group.removeChild(sg_cn[random_num]);
+      //sg_cn[random_num].visible = false;
       //sg_cn[0] = "ホゲホゲ"
-      console.log(sg_cn,sg_cn.length);
+      console.log(sg_cn,sg_cn[random_num].x);
     }
     init();
 
 
     function suffle(){
-      sg_cn[0].x = sg_cn[2].x;
-      console.log(sg_cn[0].x,sg_cn[1].x);
+      //sg_cn[0].x = sg_cn[2].x;
+      //console.log(sg_cn[0].x,sg_cn[1].x);
     };
     //suffle();
 
