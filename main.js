@@ -18,6 +18,8 @@ function gameStart(){
     scene.addChild(san_group);
     //ピースが入ってる配列
     const sg_cn = san_group.childNodes;
+    //ピースを入れる配列(初めに消えたピースの所になんか入れる)
+    const pieces = [];
 
     function init(){
         for(let i = 0;i<=2;i++){
@@ -29,22 +31,28 @@ function gameStart(){
                   san_d.x = san_d.width*i;
                   san_d.y = san_d.height*i2
                   san_group.addChild(san_d);
-                  console.log(get_random(sg_cn.length));
+                  //piecesにsan-dを入れる
+                  pieces.push(san_d);
+                  console.log(get_random(sg_cn.length),pieces);
                   san_d.on(Event.TOUCH_START,function(e){
                     console.log(e,this);
                   });
             }
         }
       ///ランダムでピースを一つ消す
-      const random_num = get_random(sg_cn.length)
+      const random_num = get_random(sg_cn.length);
+      //消すピースが入っていた所を"blank"に置き換える;
       san_group.removeChild(sg_cn[random_num]);
+      //sg_cn[random_num].visible = false;
+      //sg_cn[0] = "ホゲホゲ"
+      console.log(sg_cn,sg_cn[random_num].x);
     }
     init();
 
 
     function suffle(){
-      sg_cn[0].x = sg_cn[2].x;
-      console.log(sg_cn[0].x,sg_cn[1].x);
+      //sg_cn[0].x = sg_cn[2].x;
+      //console.log(sg_cn[0].x,sg_cn[1].x);
     };
     //suffle();
 
